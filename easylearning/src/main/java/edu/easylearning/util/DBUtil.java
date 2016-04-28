@@ -4,27 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBUtil {
-	
-	public static Connection connect(){
-		
+
+	public static Connection connect() {
+
 		Connection con = null;
-		try
-		{
+		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			 con=DriverManager.getConnection("jdbc:mysql://localhost/education","root","root");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/education", "root", "root");
 		}
-		
-		catch(Exception e)
-		{
+
+		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return con;
 	}
 
 }
-
-		
-	
-
-

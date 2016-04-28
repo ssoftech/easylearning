@@ -6,35 +6,35 @@ import edu.easylearning.dao.CategoryDao;
 import edu.easylearning.model.Category;
 
 public class CategoryService {
-	
-	public int save(Category entity)
-	{
+
+	public int save(Category entity) {
 		CategoryDao dao = new CategoryDao();
 		return dao.save(entity);
 	}
-	
-	public int update(Category entity)
-	{
+
+	public int update(Category entity)throws Exception {
 		CategoryDao dao = new CategoryDao();
 		return dao.update(entity);
 	}
-	
-	public int delete(Category entity)
-	{
+
+	public int delete(Category entity) {
 		CategoryDao dao = new CategoryDao();
 		return dao.delete(entity);
 	}
-	
-	public Category findOne(int id)
-	{
+
+	public Category findOne(int id) {
 		CategoryDao dao = new CategoryDao();
 		return dao.findOne(id);
 	}
-	
-	public ArrayList<Category> findAll()
-	{
+
+	public ArrayList<Category> findAll() {
 		CategoryDao dao = new CategoryDao();
 		return dao.findAll();
+	}
+
+	public boolean categoryExist(String category) {
+		CategoryDao dao = new CategoryDao();
+		return dao.categoryExist(category);
 	}
 
 }
