@@ -23,11 +23,12 @@ public class SubjectController extends HttpServlet {
 		if (request.getParameter("action") != null) {
 			String action = request.getParameter("action");
 			if (action.equals("save")) {
-
+				int category = Integer.parseInt(request.getParameter("category"));
 				String subject = request.getParameter("subject");
 
 				Subject entity = new Subject();
 				entity.setName(subject);
+				entity.setCategoryid(category);
 				String username = (String) session.getAttribute("username");
 				System.out.println("username" + username);
 				entity.setCreatedby(username);
@@ -59,7 +60,13 @@ public class SubjectController extends HttpServlet {
 				entity.setModifiedby(username);
 				
 				SubjectService service = new SubjectService();
-				int isSuccess = service.update(entity);
+				int isSuccess = 0;
+				try {
+				 isSuccess = service.update(entity);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("isSuccess " + isSuccess);
 				if (isSuccess > 0) {
 					request.setAttribute("Msg", "Data Saved Successfully !!");

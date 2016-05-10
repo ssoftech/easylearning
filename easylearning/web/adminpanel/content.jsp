@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import="edu.easylearning.service.*, edu.easylearning.dao.*,java.util.ArrayList,edu.easylearning.model.*"%>
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -23,6 +27,7 @@
     <!--END GLOBAL STYLES -->
 
     <!-- PAGE LEVEL STYLES -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-fileupload.min.css" />
     <link rel="stylesheet" href="../assets/plugins/Font-Awesome/css/font-awesome.css" />
      <link rel="stylesheet" href="../assets/plugins/wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css" />
     <link rel="stylesheet" href="../assets/css/Markdown.Editor.hack.css" />
@@ -34,6 +39,66 @@
                             position: relative;
                         }
                     </style>
+                    <script type="text/javascript">
+                    function s(category_id)
+                    {
+                    	alert("ss");
+                    	alert(category_id+"jkmk");
+                  	  var xhttp;
+                  	  if (window.XMLHttpRequest) {
+                  	    // code for modern browsers
+                  	    xhttp = new XMLHttpRequest();
+                  	    } else {
+                  	    // code for IE6, IE5
+                  	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                  	  }
+                  	  xhttp.onreadystatechange = function() {
+                  	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                  	      document.getElementById("sub").innerHTML = xhttp.responseText;
+                  	      subject(this.value)
+                  	    }
+                  	  };
+                  	  xhttp.open("GET", "choosesubcategory.jsp?category_id="+category_id, true);
+                  	  xhttp.send();
+                    }
+                    function subject(category_id) {
+                    	alert(category_id+"jkmk");
+                    	  var xhttp;
+                    	  if (window.XMLHttpRequest) {
+                    	    // code for modern browsers
+                    	    xhttp = new XMLHttpRequest();
+                    	    } else {
+                    	    // code for IE6, IE5
+                    	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    	  }
+                    	  xhttp.onreadystatechange = function() {
+                    	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    	      document.getElementById("sub").innerHTML = xhttp.responseText;
+                    	    }
+                    	  };
+                    	  xhttp.open("GET", "choosesubcategory.jsp?category_id="+category_id, true);
+                    	  xhttp.send();
+                    	}
+                   function Standerd(subcategory_id,category_id)
+                   {
+                	   alert(category_id);
+                 	  var xhttp;
+                 	  if (window.XMLHttpRequest) {
+                 	    // code for modern browsers
+                 	    xhttp = new XMLHttpRequest();
+                 	    } else {
+                 	    // code for IE6, IE5
+                 	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                 	  }
+                 	  xhttp.onreadystatechange = function() {
+                 	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                 	      document.getElementById("sub").innerHTML = xhttp.responseText;
+                 	    }
+                 	  };
+                 	  xhttp.open("GET", "choosestanderd.jsp?category_id="+category_id+"&subcategory_id="+subcategory_id, true);
+                 	  xhttp.send();
+                   }
+                    </script>
     <!-- END PAGE LEVEL  STYLES -->
 
    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -554,6 +619,9 @@
         <div id="content">
 
             <div class="inner">
+            
+            <form action="../ContentController" method="post" enctype=multipart/form-data class="form-horizontal">
+            
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -571,28 +639,134 @@
                     
                     
         <div class="form-group">
-    <label class="control-label col-lg-4">Select Dropdown</label>
+    <label class="control-label col-lg-4">Select Category</label>
 
-    <div class="col-lg-8">
-        <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+    <div class="col-lg-8" >
+        <select required="required" class="form-control" name="category" onchange="s(this.value)">
+											<option value="Id" selected="selected"> Category Name </option>
+											
+											 <%
+											 ContentService c = new ContentService();
+
+												ArrayList<Category> entityList = c.findcategory();
+
+												for (int i = 0; i < entityList.size(); i++) {
+											%>
+											
+											<option value="<%=entityList.get(i).getId()%>"><%=entityList.get(i).getName()%></option> 
+											<%} %>
+											</select>
     </div>
 </div>
                     
-                    
-                    
+       <div class="form-group">
+    <label class="control-label col-lg-4">Select Subcategory</label>
+
+    <div class="col-lg-8" id="sub">
+        <select required="required" class="form-control" name="subcategory">
+											<option value="Id" selected="selected"> Subcategory Name </option>
+											
+											</select>
+    </div>
+</div> 
+
+<div class="form-group">
+    <label class="control-label col-lg-4">Select Standard</label>
+
+    <div class="col-lg-8">
+        <select required="required" class="form-control" name="standard">
+											<option value="Id" selected="selected"> Standard Name </option>
+											
+											 <%
+											 ContentService c2 = new ContentService();
+
+												ArrayList<Standard> entityList2 = c2.findstandard();
+
+												for (int i = 0; i < entityList2.size(); i++) {
+											%>
+											
+											<option value="<%=entityList2.get(i).getId()%>"><%=entityList2.get(i).getName()%></option> 
+											<%} %>
+											</select>
+    </div>
+</div>  
+
+<div class="form-group">
+    <label class="control-label col-lg-4">Select Type</label>
+
+    <div class="col-lg-8">
+       <select required="required" class="form-control" name="type">
+											<option value="Id" selected="selected"> Type Name </option>
+											
+											 <%
+											 ContentService c3 = new ContentService();
+
+												ArrayList<Type> entityList3 = c3.findtype();
+
+												for (int i = 0; i < entityList3.size(); i++) {
+											%>
+											
+											<option value="<%=entityList3.get(i).getId()%>"><%=entityList3.get(i).getName()%></option> 
+											<%} %>
+											</select>
+    </div>
+</div>          
+             
+            <div class="form-group">
+    <label class="control-label col-lg-4">Select Subject</label>
+
+    <div class="col-lg-8">
+        <select required="required" class="form-control" name="subject">
+											<option value="Id" selected="selected"> Subject Name </option>
+											
+											 <%
+											 ContentService c4 = new ContentService();
+
+												ArrayList<Subject> entityList4 = c4.findsubject();
+
+												for (int i = 0; i < entityList4.size(); i++) {
+													
+														
+														
+													
+											%>
+											
+											<option value="<%=entityList4.get(i).getId()%>"><%=entityList4.get(i).getName()%></option> 
+											<%} %>
+											</select>
+    </div>
+</div>    
+
+ <div class="form-group">
+    <label class="control-label col-lg-4">Select Chapter</label>
+
+    <div class="col-lg-8">
+        <select required="required" class="form-control" name="chapter">
+                                            <option value="Id" selected="selected"> ALL </option>
+											<option value="Id" selected="selected"> Chapter Name </option>
+											
+											
+											 <%
+											 ContentService c5 = new ContentService();
+
+												ArrayList<Chapter> entityList5 = c5.findchapter();
+
+												for (int i = 0; i < entityList5.size(); i++) {
+											%>
+											
+											<option value="<%=entityList5.get(i).getId()%>"><%=entityList5.get(i).getName()%></option> 
+											<%} %>
+											</select>
+    </div>
+</div>     
                     
                     
 
 
-                    <div class="row">
+                    <div class="row" style="margin-top:10px; width:700px; margin-left:335px;">
                         <div class="col-lg-12">
                             <div class="box">
+                            
                                 <header>
                                     <div class="icons"><i class="icon-th-large"></i></div>
                                     <h5>WYSIWYG Editor</h5>
@@ -612,15 +786,12 @@
                                     </ul>
                                 </header>
 
-                                <div id="cleditorDiv" class="body collapse in">
-                                    <form>
-                                        <textarea id="cleditor" class="form-control"></textarea>
+                                <div id="cleditorDiv" class="body collapse in ">
+                                    
+                                        <textarea id="cleditor" class="form-control" name="text"></textarea>
 
-                                        <div class="form-actions no-margin-bottom" id="cleditorForm">
-                                            <br />
-                                            <input type="submit" value="Submit" class="btn btn-primary" />
-                                        </div>
-                                    </form>
+                                        
+                                  
                                 </div>
                             </div>
                         </div>
@@ -645,7 +816,7 @@
                         </textarea>
                                              <div class="form-actions no-margin-bottom" id="Div1">
                                             <br />
-                                            <input type="submit" value="Submit" class="btn btn-primary" />
+                                            <input type="submit" value="submit" class="btn btn-primary" />
                                         </div>
                                         </div>
                                     </div>
@@ -657,7 +828,56 @@
                         </div>
                     </div>
 
+              <div class="form-group">
+                        <label class="control-label col-lg-4">Image Upload</label>
+                        <div class="col-lg-8">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name= "image"/></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+           
+            
+            <div class="form-group">
+                        <label class="control-label col-lg-4">File/Video Upload</label>
+                        <div class="col-lg-8">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
 
+
+
+                                <div class="input-group">
+                                    
+
+                                    <span class="btn btn-file btn-info">
+                                        <span class="fileupload-new">Select file/video</span>
+                                        <span class="fileupload-exists">Change</span>
+                                        <input type="file" name ="file" />
+                                    </span> 
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    
+                                    <br /> <br />
+                                    <div class="col-lg-3">
+                                        <i class="icon-file fileupload-exists"></i>
+                                        <span class="fileupload-preview"></span>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        
+                     <div class="form-actions no-margin-bottom"
+										style="margin-top:2px; width:680px; margin-left:355px;">
+										<input type="submit" id="save" name="action" value="save"
+											class="btn btn-primary " />
+											
+									</div>
+									
+					</form>				
+                     
             </div>
 
 
@@ -690,6 +910,7 @@
     <script src="../assets/plugins/pagedown/Markdown.Sanitizer.js"></script>
     <script src="../assets/plugins/Markdown.Editor-hack.js"></script>
     <script src="../assets/js/editorInit.js"></script>
+    <script src="../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
     <script>
         $(function () { formWysiwyg(); });
         </script>

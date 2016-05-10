@@ -8,6 +8,9 @@ public class Subject {
 	private String modifiedby;
 	private String creationdate;
 	private String modifieddate;
+	private int categoryid;
+	private String category_name;
+	
 	public int getId() {
 		return id;
 	}
@@ -43,6 +46,18 @@ public class Subject {
 	}
 	public void setModifieddate(String modifieddate) {
 		this.modifieddate = modifieddate;
+	}
+	public int getCategoryid() {
+		return categoryid;
+	}
+	public void setCategoryid(int categoryid) {
+		this.categoryid = categoryid;
+	}
+	public String getCategory_name() {
+		return category_name;
+	}
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	}
 	
 	

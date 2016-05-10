@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="edu.easylearning.service.SubjectService, edu.easylearning.dao.*,java.util.ArrayList,edu.easylearning.model.*"%>
+<%@page import="edu.easylearning.service.*, edu.easylearning.dao.*,java.util.ArrayList,edu.easylearning.model.*"%>
     
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -12,7 +12,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="UTF-8" />
-<title>BCORE Admin Dashboard Template | Form Validations</title>
+<title>BCORE Admin Dashboard Template | Insert Subject</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="" name="description" /> 
 <meta content="" name="author" />
@@ -57,7 +57,7 @@
 	  document.getElementById("save").style.display = "block";
 	  document.getElementById("edit").style.display = "none";  
   }
-   function delet(id)
+   function s(id)
   {
 	  
 	   location.href="../SubjectController?id="+id;
@@ -91,7 +91,7 @@
 				<header class="navbar-header">
 
 					<a href="index.html" class="navbar-brand"> <img
-						src="assets/img/logo.png" alt="" /></a>
+						src="../assets/img/logo.png" alt="" /></a>
 				</header>
 				<!-- END LOGO SECTION -->
 				<ul class="nav navbar-top-links navbar-right">
@@ -287,7 +287,7 @@
 							</li>
 							<li><a href="#"><i class="icon-gear"></i> Settings </a></li>
 							<li class="divider"></li>
-							<li><a href="login.html"><i class="icon-signout"></i>
+							<li><a href="../LogoutController"><i class="icon-signout"></i>
 									Logout </a></li>
 						</ul></li>
 					<!--END ADMIN SETTINGS -->
@@ -305,7 +305,7 @@
 			<div class="media user-media well-small">
 				<a class="user-link" href="#"> <img
 					class="media-object img-thumbnail user-img" alt="User Picture"
-					src="assets/img/user.gif" />
+					src="../assets/img/user.gif" />
 				</a> <br />
 				<div class="media-body">
 					<h5 class="media-heading">Admin</h5>
@@ -394,7 +394,7 @@
 					</ul></li>
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
-					data-target="#chart-nav"> <i class="icon-bar-chart"></i> Charts
+					data-target="#chart-nav"> <i class="icon-bar-chart"></i> Reports
 
 						<span class="pull-right"> <i class="icon-angle-left"></i>
 					</span> &nbsp; <span class="label label-danger">4</span>&nbsp;
@@ -415,14 +415,14 @@
 
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
-					data-target="#DDL-nav"> <i class=" icon-sitemap"></i> 3 Level
-						Menu <span class="pull-right"> <i class="icon-angle-left"></i>
+					data-target="#DDL-nav"> <i class=" icon-sitemap"></i> Master
+						 <span class="pull-right"> <i class="icon-angle-left"></i>
 					</span>
 				</a>
 					<ul class="collapse" id="DDL-nav">
 						<li><a href="#" data-parent="#DDL-nav" data-toggle="collapse"
 							class="accordion-toggle" data-target="#DDL1-nav"> <i
-								class="icon-sitemap"></i>&nbsp; Demo Link 1 <span
+								class="icon-sitemap"></i>&nbsp; Contents <span
 								class="pull-right" style="margin-right: 20px;"> <i
 									class="icon-angle-left"></i>
 							</span>
@@ -430,20 +430,24 @@
 
 						</a>
 							<ul class="collapse" id="DDL1-nav">
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 1 </a></li>
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 2 </a></li>
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 3 </a></li>
+									<li><a href="#"><i class="icon-angle-right"></i> Question Bank
+										 </a></li>
+								<li><a href="#"><i class="icon-angle-right"></i> Study Materials
+										</a></li>
+								<li><a href="#"><i class="icon-angle-right"></i> Synopsis
+					
+										 </a></li>
+                                 
+                                 <li><a href="#"><i class="icon-angle-right"></i> Videos
+										 </a></li>
 
 							</ul></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 2 </a></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 3 </a></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 4 </a></li>
+							 <li><a href="category.jsp"><i class="icon-angle-right"></i> Category </a></li>
+                        <li><a href="subcategory.jsp"><i class="icon-angle-right"></i> SubCategory </a></li>
+                        <li><a href="type.jsp"><i class="icon-angle-right"></i> Type </a></li>
+                       <li><a href="standard.jsp"><i class="icon-angle-right"></i> Standard </a></li>
+                       <li><a href="subject.jsp"><i class="icon-angle-right"></i> Subject </a></li>
+                       <li><a href="chapter.jsp"><i class="icon-angle-right"></i> Chapter </a></li>
 					</ul></li>
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
@@ -550,7 +554,7 @@
 					<div class="col-lg-12">
 
 
-						<h1>Form Validations</h1>
+						<h1>Insert Subject</h1>
 
 
 
@@ -587,6 +591,30 @@
 							<div id="collapseOne" class="accordion-body collapse in body">
 								<form action="../SubjectController" method="post" class="form-horizontal">
 
+                       
+										<div class="col-lg-4">
+										  <label> Category Name</label>
+										<select required="required" class="form-control" name="category" id="category">
+											<option value="Id" selected="selected"> Category Name </option>
+											
+											 <%
+											  SubjectService c = new SubjectService();
+
+												ArrayList<Category> entityList = c.findone();
+
+												for (int i = 0; i < entityList.size(); i++) {
+											%>
+											
+											<option value="<%=entityList.get(i).getId()%>"><%=entityList.get(i).getName()%></option> 
+											<%} %>
+											</select>
+											</div>  
+                         
+
+
+
+
+
 									<!-- <div class="form-group"
 									style="text-align: center;">
 										<label class="control-label col-lg-4">Name<input type="text" ></label>
@@ -601,12 +629,13 @@
 									
 									
 									<div class="form-group">
-										<label class="control-label col-lg-1">Name</label>
-										<div class="col-md-4">
-										<input type="text" name="subject" id="subject" style="width: 300px;">
+										
+										<div class="col-lg-4">
+										<label>Name</label>
+										<input type="text" name="subject" id="subject" style="width : 300px;height:30px;">
 											<input type="hidden" name ="id1" id="id1">
 										</div>
-										<div class="form-actions no-margin-bottom">
+										<div class="form-actions no-margin-bottom"style="text-align: center;padding-top: 23px;">
 										<input type="submit" id="save" name="action" value="save"
 											class="btn btn-primary" />
 											<input type="submit" id="edit" name="action" value="edit"
@@ -641,6 +670,7 @@
 										<thead>
 											<tr>
 												<th>ID</th>
+												<th>Category Name</th>
 												<th>NAME</th>
 												<th>ACTION</th>
 												
@@ -648,23 +678,24 @@
 											</tr>
 											
 				
-     <% SubjectService c =new SubjectService();   
+     <% SubjectService ss =new SubjectService();   
   
      
-     ArrayList<Subject> entityList =c.findAll();
+     ArrayList<Subject> entityLis =ss.findAll();
      
-         for(int i=0;i<entityList.size();i++)
+         for(Subject entity:entityLis)
         { 
         	 
       %>							
 										</thead>
 										<tbody>
 											<tr class="odd gradeX">
-                                                <td><%=entityList.get(i).getId()%></td>
-                                                
-                                                <td><%=entityList.get(i).getName()%></td>
-                                                 <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entityList.get(i).getId()%>,'<%=entityList.get(i).getName()%>')" > 
-                                                  <input type="button" name = "action" value="Delete"  onclick="delet(<%=entityList.get(i).getId()%>)"></td>
+                                                <td><%=entity.getId()%></td>
+                                                <td><%=entity.getCategory_name()%></td>
+                                                <td><%=entity.getName()%></td>
+                                                <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entity.getId()%>,'<%=entity.getName()%>','<%=entity.getCategory_name()%>')" > 
+                                                     <input type="button" id="action" name ="action" value="Delete" onclick="s(<%=entity.getId()%>)" >
+                                                  </td>
                                                 
                                                 
 											</tr>

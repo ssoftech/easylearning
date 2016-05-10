@@ -9,7 +9,7 @@ public class Subcategory {
 	private String modifiedby;
 	private String modifieddate;
 	private int categoryid;
-	
+	private String category_name;
 	
 	public int getId() {
 		return id;
@@ -53,6 +53,12 @@ public class Subcategory {
 	}
 	public void setModifieddate(String modifieddate) {
 		this.modifieddate = modifieddate;
+	}
+	public String getCategory_name() {
+		return category_name;
+	}
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	} 
 	
 	

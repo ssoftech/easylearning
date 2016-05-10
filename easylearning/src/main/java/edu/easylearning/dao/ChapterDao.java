@@ -95,21 +95,32 @@ public int delete(Chapter entity) {
 public ArrayList<Chapter> findAll() {
 	ArrayList<Chapter> entityList = new ArrayList<Chapter>();
 	Chapter entity = null;
+	
 
 	try {
 		Connection con = DBUtil.connect();
-		String sql = "select * from chapter";
+		//String sql = "select * from chapter";
+		String sql = "select c.id,c.name,st.name,su.name from chapter c inner join standard st on c.standard_id=st.id inner join subject su on c.subject_id=su.id";
+		//String sql = "select c.id,c.name,st.name,from chapter c inner join standard st on c.standard_id=st.id";
+		//String sql = "select s.id,s.name,c.name from subcategory s inner join category c on s.category_id=c.id";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
-			int id = rs.getInt("id");
-			String name = rs.getString("name");
-
+			int id = rs.getInt(1);
+			String name = rs.getString(2);
+			String Standard_name = rs.getString(3);
+			String Subject_name  = rs.getString(4);
+			System.out.println("Standard...."+Standard_name);
+			System.out.println("Subject...."+Subject_name);
+			
 			entity = new Chapter();
 			entity.setId(id);
 			entity.setName(name);
-
+			entity.setStandard_name(Standard_name);	
+			entity.setSubject_name(Subject_name);
+			
 			entityList.add(entity);
+			
 
 		}
 	} catch (SQLException e) {
@@ -159,17 +170,17 @@ public ArrayList<Subject> findonesubject() {
 
 	try {
 		Connection con = DBUtil.connect();
-		String sql = "select id,name from subject";
+		String sql = "select DISTINCT name from subject";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
 		   String name = rs.getString("name");
-		   int id=rs.getInt(1);
+		   //int id=rs.getInt(1);
 
 			entity = new Subject();
 			
 			entity.setName(name);
-			entity.setId(id);
+			//entity.setId(id);
 
 			entityList.add(entity);
 

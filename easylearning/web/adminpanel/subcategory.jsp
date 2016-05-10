@@ -40,10 +40,14 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   <script type="text/javascript">
-  function edit(id,category)
+  function edit(id,subcategory,category)
   {
+	  //alert(category);
+	  document.getElementById("subcategory").value =subcategory;
+	  
+	  document.getElementById("category").value=category;
 	  alert(category);
-	  document.getElementById("category").value =category;
+	  alert(document.getElementById("category").value);
 	  document.getElementById("id1").value =id;
 	  var action = document.getElementById("action").value;
 	  //location.href="../CategoryController?id="+id+"&action="+action;
@@ -61,7 +65,7 @@
   
   function s(id)
   {
-  	alert(id+"asdasdasd");
+  	//alert(id+"asdasdasd");
   	location.href="../SubcategoryController?id="+id;
   	
   }
@@ -557,7 +561,7 @@
 					<div class="col-lg-12">
 
 
-						<h1>Form Validations</h1>
+						<h1>Insert Subcategory</h1>
 
 
 
@@ -573,7 +577,7 @@
 								<div class="icons">
 									<i class="icon-th-large"></i>
 								</div>
-								<h5>Category</h5>
+								<h5>SubCategory</h5>
 								<div class="toolbar">
 									<ul class="nav">
 										<li>
@@ -594,9 +598,10 @@
 							<div id="collapseOne" class="accordion-body collapse in body">
 								<form action="../SubcategoryController" method="post" class="form-horizontal">
 
-                                <label class="control-label col-lg-4"> Category Name</label>
+                                
 										<div class="col-lg-4">
-										<select required="required" class="form-control" name="category">
+										<label> Category Name</label>
+										<select required="required" class="form-control" name="category" id="category">
 											<option value="Id" selected="selected"> Category Name </option>
 											
 											 <%
@@ -630,13 +635,14 @@
 									
 									
 									<div class="form-group">
-										<label class="control-label col-lg-1">Name</label>
+										
 										<div class="col-lg-4">
-										<input type="text" name ="subcategory" id="category" style ="width : 300px;">
+										<label>Name</label>
+										<input type="text" name ="subcategory"  id="subcategory" style ="width : 275px;height:30px; " >
 										<input type="hidden" name ="id1" id="id1">
 										</div>
 										<div class="form-actions no-margin-bottom"
-										style="text-align: center;">
+										style="text-align: center;padding-top: 23px;">
 										<input type="submit" id="save" name="action" value="save"
 											class="btn btn-primary " />
 											<input type="submit" id="edit" name="action" value="edit"
@@ -671,6 +677,7 @@
 										<thead>
 											<tr>
 												<th>ID</th>
+												<th>Category Name</th>
 												<th>NAME</th>
 												<th>ACTION</th>
 												
@@ -683,24 +690,24 @@
      
      ArrayList<Subcategory> entityLis =ss.findAll();
      
-         for(int i=0;i<entityLis.size();i++)
+         for(Subcategory entity:entityLis)
         { 
         	 
       %>							
 										</thead>
 										<tbody>
 											<tr class="odd gradeX">
-                                                <td><%=entityLis.get(i).getId()%></td>
-                                                
-                                                <td><%=entityLis.get(i).getName()%></td>
-                                                 <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entityLis.get(i).getId()%>,'<%=entityLis.get(i).getName()%>')" > 
-                                                     <input type="button" id="action" name ="action" value="Delete" onclick="s(<%=entityLis.get(i).getId()%>)" >
+                                                <td><%=entity.getId()%></td>
+                                                <td><%=entity.getCategory_name()%></td>
+                                                <td><%=entity.getName()%></td>
+                                                <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entity.getId()%>,'<%=entity.getName()%>','<%=entity.getCategory_name()%>')" > 
+                                                     <input type="button" id="action" name ="action" value="Delete" onclick="s(<%=entity.getId()%>)" >
                                                   </td>
                                                 
                                                 
 											</tr>
 											<% } %>
-																				</tbody>
+													</tbody>
 									</table>
 								</div>
 

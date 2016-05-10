@@ -538,10 +538,18 @@
 
 			<div class="inner">
 				<div class="row">
+				<div class="col-lg-12">
+                            
+                               
+                                    <h1 >  Insert Standard </h1>
+                                  
+                                
+                                
+                            </div>
 				
 				</div>
 				
-
+                    <hr />
 
 				<div class="row">
 					<div class="col-lg-12">
@@ -571,7 +579,7 @@
 							<div id="collapseOne" class="accordion-body collapse in body">
 								<form action="../StandardController"    method="post" class="form-horizontal">
 	
-									<div class="form-group">
+									 <!-- <div class="form-group">
 																
 										<label class="control-label col-lg-1" for="standard">Name</label>		
 										<div class="col-lg-3">										
@@ -585,7 +593,26 @@
 											class="btn btn-primary" /> 
 										
 									</div>
+										</div>  -->
+									
+								<div class = "container">	
+									 <div class="form-group">
+									 <div class="col-lg-4">
+										<label>Name</label>
+										
+										<input type="text" name ="standard" id="standard" style ="width :275px;height:30px; ">
+										<input type="hidden" name ="id1" id="id1">
 										</div>
+										<div class="form-actions no-margin-bottom"
+										style="text-align: center;padding-top: 23px;">
+										<input type="submit" id="save" name="action" value="save"
+											class="btn btn-primary " />
+											<input type="submit" id="edit" name="action" value="edit"
+											class="btn btn-warning" />
+									</div>
+										</div>
+									 </div>
+									
 									
 								</form>
 							</div>

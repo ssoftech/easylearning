@@ -2,7 +2,9 @@ package edu.easylearning.service;
 
 import java.util.ArrayList;
 
+import edu.easylearning.dao.SubcategoryDao;
 import edu.easylearning.dao.SubjectDao;
+import edu.easylearning.model.Category;
 import edu.easylearning.model.Subject;
 
 public class SubjectService {
@@ -28,12 +30,13 @@ public class SubjectService {
 		return dao.delete(entity);
 	}
 
-	public Subject findOne(int id)
-	{
-		SubjectDao dao = new SubjectDao();
-		
-		return dao.findOne(id);
+	public ArrayList<Category> findone() {
+		SubcategoryDao dao = new SubcategoryDao();
+		return dao.find();
 	}
+	
+	
+	
 	
 	public ArrayList<Subject> findAll()
 	{

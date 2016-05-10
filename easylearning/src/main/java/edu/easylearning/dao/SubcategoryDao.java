@@ -13,9 +13,8 @@ import edu.easylearning.model.Category;
 import edu.easylearning.model.Subcategory;
 import edu.easylearning.util.DBUtil;
 
-
 public class SubcategoryDao {
-	
+
 	public int save(Subcategory entity) {
 		int i = 0;
 		try {
@@ -23,7 +22,7 @@ public class SubcategoryDao {
 			Date date = new Date();
 			System.out.println("date " + dt.format(date));
 			Connection con = DBUtil.connect();
-			
+
 			String sql = "insert into subcategory(name,creation_date,category_id,created_by) values(?,?,?,?)";
 			System.out.println("a");
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -41,9 +40,7 @@ public class SubcategoryDao {
 
 		return i;
 	}
-	
-	
-	
+
 	public ArrayList<Category> find() {
 		ArrayList<Category> entityList = new ArrayList<Category>();
 		Category entity = null;
@@ -54,11 +51,11 @@ public class SubcategoryDao {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-			   String name = rs.getString("name");
-			   int id=rs.getInt(1);
+				String name = rs.getString("name");
+				int id = rs.getInt(1);
 
 				entity = new Category();
-				
+
 				entity.setName(name);
 				entity.setId(id);
 
@@ -72,23 +69,26 @@ public class SubcategoryDao {
 
 		return entityList;
 	}
-	
+
 	public ArrayList<Subcategory> findAll() {
 		ArrayList<Subcategory> entityList = new ArrayList<Subcategory>();
 		Subcategory entity = null;
 
 		try {
 			Connection con = DBUtil.connect();
-			String sql = "select * from Subcategory";
+			String sql = "select s.id,s.name,c.name from subcategory s inner join category c on s.category_id=c.id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				String name = rs.getString("name");
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String category_name = rs.getString(3);
+				System.out.println(id + "  " + name + " " + category_name);
 
 				entity = new Subcategory();
 				entity.setId(id);
 				entity.setName(name);
+				entity.setCategory_name(category_name);
 
 				entityList.add(entity);
 
@@ -100,15 +100,14 @@ public class SubcategoryDao {
 
 		return entityList;
 	}
-	
-	
-public int update(Subcategory entity) {
-		
-		int i =0;
+
+	public int update(Subcategory entity) {
+
+		int i = 0;
 		try {
 			DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = new Date();
-			
+
 			Connection con = DBUtil.connect();
 			String sql = "update subcategory set name=?, modified_date=?, modified_by=? where id=?";
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -121,31 +120,29 @@ public int update(Subcategory entity) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		return i;
 	}
 
+	public int delete(Subcategory entity) {
 
-     public int delete(Subcategory entity) {
+		int i = 0;
 
-	  int i = 0;
+		try {
+			Connection con = DBUtil.connect();
+			String sql = "delete from subcategory where id=?";
+			PreparedStatement ps = con.prepareStatement(sql);
 
-	 try {
-		Connection con = DBUtil.connect();
-		String sql = "delete from subcategory where id=?";
-		PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, entity.getId());
 
-		ps.setInt(1, entity.getId());
+			i = ps.executeUpdate();
 
-		i = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
 
-	 } catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	 }
-	 return i;
+	}
 
 }
-	
-}	

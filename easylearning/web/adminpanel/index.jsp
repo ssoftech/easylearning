@@ -342,16 +342,16 @@
                         <span class="pull-right">
                           <i class="icon-angle-left"></i>
                         </span>
-                       &nbsp; <span class="label label-default">6</span>&nbsp;
+                       &nbsp; <span class="label label-default"></span>&nbsp;
                     </a>
                     <ul class="collapse" id="component-nav">
                        
                         <li class=""><a href="category.jsp"><i class="icon-angle-right"></i> Category </a></li>
-                         <li class=""><a href="icon.html"><i class="icon-angle-right"></i> SubCategory </a></li>
-                        <li class=""><a href="progress.html"><i class="icon-angle-right"></i> Type </a></li>
-                        <li class=""><a href="tabs_panels.html"><i class="icon-angle-right"></i> Standard </a></li>
+                         <li class=""><a href="subcategory.jsp"><i class="icon-angle-right"></i> SubCategory </a></li>
+                        <li class=""><a href="type.jsp"><i class="icon-angle-right"></i> Type </a></li>
+                        <li class=""><a href="standard.jsp"><i class="icon-angle-right"></i> Standard </a></li>
                         <li class=""><a href="subject.jsp"><i class="icon-angle-right"></i> Subject </a></li>
-                         <li class=""><a href="more_notifications.html"><i class="icon-angle-right"></i> Chapter </a></li>
+                         <li class=""><a href="chapter.jsp"><i class="icon-angle-right"></i> Chapter </a></li>
                        
                     </ul>
                 </li>
@@ -373,24 +373,7 @@
                     </ul>
                 </li>
 
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#pagesr-nav">
-                        <i class="icon-table"></i> Contents
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                          &nbsp; <span class="label label-info">4</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="pagesr-nav">
-                        <li><a href="questionbank.jsp"><i class="icon-angle-right"></i> Question Bank </a></li>
-                        <li><a href="studymaterials.jsp"><i class="icon-angle-right"></i> Study Materials </a></li>
-                        <li><a href="synopsis.jsp"><i class="icon-angle-right"></i> Synopsis </a></li>
-                        <li><a href="videos.jsp"><i class="icon-angle-right"></i> Videos </a></li>
-                       <!--  <li><a href="pages_offline.html"><i class="icon-angle-right"></i> Offline </a></li>
-                        <li><a href="pages_uc.html"><i class="icon-angle-right"></i> Under Construction </a></li> -->
-                    </ul>
-                </li>
+                <li><a href="content.jsp"><i class="icon-table"></i> Content </a></li>
                 <li class="panel">
                     <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#chart-nav">
                         <i class="icon-bar-chart"></i> Charts

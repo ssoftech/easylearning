@@ -10,6 +10,9 @@ public class Chapter {
 	private String modifieddate;
 	private int subjectid;
 	private int standardid;
+	private String subject_name;
+	private String standard_name;
+	
 	public int getId() {
 		return id;
 	}
@@ -17,6 +20,7 @@ public class Chapter {
 		this.id = id;
 	}
 	public String getName() {
+		
 		return name;
 	}
 	public void setName(String name) {
@@ -57,6 +61,19 @@ public class Chapter {
 	}
 	public void setStandardid(int standard) {
 		this.standardid = standard;
+	}
+	public String getSubject_name() {
+		return subject_name;
+	}
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
+	public String getStandard_name() {
+		System.out.println("standard name is==="+standard_name);
+		return standard_name;
+	}
+	public void setStandard_name(String standard_name) {
+		this.standard_name = standard_name;
 	}
 
 	

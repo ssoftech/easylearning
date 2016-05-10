@@ -27,6 +27,7 @@ public class SubcategoryController extends HttpServlet {
 				int category = Integer.parseInt(request.getParameter("category"));
 				System.out.println("category"+category);
 				String subcategory=request.getParameter("subcategory");
+				
 				Subcategory entity = new Subcategory();
 				entity.setName(subcategory);
 				entity.setCategoryid(category);

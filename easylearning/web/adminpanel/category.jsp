@@ -42,7 +42,7 @@
   <script type="text/javascript">
   function edit(id,category)
   {
-	  alert(category);
+	  //alert(category);
 	  document.getElementById("category").value =category;
 	  document.getElementById("id1").value =id;
 	  var action = document.getElementById("action").value;
@@ -61,7 +61,7 @@
   
   function s(id)
   {
-  	alert(id+"asdasdasd");
+  	//alert(id+"asdasdasd");
   	location.href="../CategoryController?id="+id;
   	
   }
@@ -323,60 +323,43 @@
 
 
 				<li class="panel"><a href="index.html"> <i
-						class="icon-table"></i> Dashboard
+						class="icon-table"></i> Trial/Premium Pack
 
 
 				</a></li>
 
 
 
-				<li class="panel "><a href="#" data-parent="#menu"
-					data-toggle="collapse" class="accordion-toggle"
-					data-target="#component-nav"> <i class="icon-tasks"> </i> UI
-						Elements <span class="pull-right"> <i
-							class="icon-angle-left"></i>
-					</span> &nbsp; <span class="label label-default">10</span>&nbsp;
-				</a>
-					<ul class="collapse" id="component-nav">
-
-						<li class=""><a href="button.html"><i
-								class="icon-angle-right"></i> Buttons </a></li>
-						<li class=""><a href="icon.html"><i
-								class="icon-angle-right"></i> Icons </a></li>
-						<li class=""><a href="progress.html"><i
-								class="icon-angle-right"></i> Progress </a></li>
-						<li class=""><a href="tabs_panels.html"><i
-								class="icon-angle-right"></i> Tabs & Panels </a></li>
-						<li class=""><a href="notifications.html"><i
-								class="icon-angle-right"></i> Notification </a></li>
-						<li class=""><a href="more_notifications.html"><i
-								class="icon-angle-right"></i> More Notification </a></li>
-						<li class=""><a href="modals.html"><i
-								class="icon-angle-right"></i> Modals </a></li>
-						<li class=""><a href="wizard.html"><i
-								class="icon-angle-right"></i> Wizard </a></li>
-						<li class=""><a href="sliders.html"><i
-								class="icon-angle-right"></i> Sliders </a></li>
-						<li class=""><a href="typography.html"><i
-								class="icon-angle-right"></i> Typography </a></li>
-					</ul></li>
 				<li class="panel active"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle collapsed"
-					data-target="#form-nav"> <i class="icon-pencil"></i> Profiles <span
-						class="pull-right"> <i class="icon-angle-left"></i>
-					</span> &nbsp; <span class="label label-success">2</span>&nbsp;
+					data-target="#component-nav"> <i class="icon-tasks"> </i> Insert
+						 <span class="pull-right"> 
+							<i class="icon-angle-left"></i>
+					</span> &nbsp; <span class="label label-success"></span>&nbsp;
+				</a>
+					<ul class="collapse" id="component-nav">
+                       
+                        <li class=""><a href="category.jsp"><i class="icon-angle-right"></i> Category </a></li>
+                         <li class=""><a href="icon.html"><i class="icon-angle-right"></i> SubCategory </a></li>
+                        <li class=""><a href="progress.html"><i class="icon-angle-right"></i> Type </a></li>
+                        <li class=""><a href="tabs_panels.html"><i class="icon-angle-right"></i> Standard </a></li>
+                        <li class=""><a href="subject.jsp"><i class="icon-angle-right"></i> Subject </a></li>
+                         <li class=""><a href="more_notifications.html"><i class="icon-angle-right"></i> Chapter </a></li>
+                       
+                    </ul></li>
+				<li class="panel"><a href="#" data-parent="#menu"
+					data-toggle="collapse" class="accordion-toggle"
+					data-target="#form-nav"> <i class="icon-pencil"></i> Profiles 
+					  <span class="pull-right"> 
+					  <i class="icon-angle-left"></i>
+					</span> &nbsp; <span class="label label-default">2</span>&nbsp;
 				</a>
 					<ul class="in" id="form-nav">
 						<li class=""><a href="forms_general.html"><i
 								class="icon-angle-right"></i> User Profiles </a></li>
 						<li class=""><a href="forms_advance.html"><i
 								class="icon-angle-right"></i> Teacher Profiles </a></li>
-					<!-- 	<li class=""><a href="forms_validation.html"><i
-								class="icon-angle-right"></i> Validation </a></li>
-						<li class=""><a href="forms_fileupload.html"><i
-								class="icon-angle-right"></i> FileUpload </a></li>
-						<li class=""><a href="forms_editors.html"><i
-								class="icon-angle-right"></i> WYSIWYG / Editor </a></li> -->
+					
 					</ul></li>
 
 				<li class="panel"><a href="#" data-parent="#menu"
@@ -560,7 +543,7 @@
 					<div class="col-lg-12">
 
 
-						<h1>Form Validations</h1>
+						<h1>Insert Category</h1>
 
 
 
@@ -609,22 +592,23 @@
 									
 									
 									
-									
+									<div class = "container">
 									<div class="form-group">
-										<label class="control-label col-lg-1">Name</label>
+										
 										<div class="col-lg-4">
-										<input type="text" name ="category" id="category" style ="width : 300px;">
+										<label>Name</label>
+										<input type="text" name ="category" id="category" style ="width :275px;height:30px; ">
 										<input type="hidden" name ="id1" id="id1">
 										</div>
 										<div class="form-actions no-margin-bottom"
-										style="text-align: center;">
+										style="text-align: center;padding-top: 23px;">
 										<input type="submit" id="save" name="action" value="save"
 											class="btn btn-primary " />
 											<input type="submit" id="edit" name="action" value="edit"
 											class="btn btn-warning" />
 									</div>
 										</div>
-									
+									</div>
 									
 									
 									

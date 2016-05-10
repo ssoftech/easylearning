@@ -91,7 +91,7 @@
 				<header class="navbar-header">
 
 					<a href="index.html" class="navbar-brand"> <img
-						src="assets/img/logo.png" alt="" /></a>
+						src="../assets/img/logo.png" alt="" /></a>
 				</header>
 				<!-- END LOGO SECTION -->
 				<ul class="nav navbar-top-links navbar-right">
@@ -287,7 +287,7 @@
 							</li>
 							<li><a href="#"><i class="icon-gear"></i> Settings </a></li>
 							<li class="divider"></li>
-							<li><a href="login.html"><i class="icon-signout"></i>
+							<li><a href="../LogoutController"><i class="icon-signout"></i>
 									Logout </a></li>
 						</ul></li>
 					<!--END ADMIN SETTINGS -->
@@ -305,10 +305,10 @@
 			<div class="media user-media well-small">
 				<a class="user-link" href="#"> <img
 					class="media-object img-thumbnail user-img" alt="User Picture"
-					src="assets/img/user.gif" />
+					src="../assets/img/user.gif" />
 				</a> <br />
 				<div class="media-body">
-					<h5 class="media-heading">Joe Romlin</h5>
+					<h5 class="media-heading">Admin</h5>
 					<ul class="list-unstyled user-info">
 
 						<li><a class="btn btn-success btn-xs btn-circle"
@@ -362,21 +362,21 @@
 					</ul></li>
 				<li class="panel active"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle collapsed"
-					data-target="#form-nav"> <i class="icon-pencil"></i> Forms <span
+					data-target="#form-nav"> <i class="icon-pencil"></i> Profiles <span
 						class="pull-right"> <i class="icon-angle-left"></i>
-					</span> &nbsp; <span class="label label-success">5</span>&nbsp;
+					</span> &nbsp; <span class="label label-success">2</span>&nbsp;
 				</a>
 					<ul class="in" id="form-nav">
 						<li class=""><a href="forms_general.html"><i
-								class="icon-angle-right"></i> General </a></li>
+								class="icon-angle-right"></i> User Profiles </a></li>
 						<li class=""><a href="forms_advance.html"><i
-								class="icon-angle-right"></i> Advance </a></li>
-						<li class=""><a href="forms_validation.html"><i
+								class="icon-angle-right"></i> Teacher Profiles </a></li>
+						<!-- <li class=""><a href="forms_validation.html"><i
 								class="icon-angle-right"></i> Validation </a></li>
 						<li class=""><a href="forms_fileupload.html"><i
 								class="icon-angle-right"></i> FileUpload </a></li>
 						<li class=""><a href="forms_editors.html"><i
-								class="icon-angle-right"></i> WYSIWYG / Editor </a></li>
+								class="icon-angle-right"></i> WYSIWYG / Editor </a></li> -->
 					</ul></li>
 
 				<li class="panel"><a href="#" data-parent="#menu"
@@ -401,7 +401,7 @@
 					</ul></li>
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
-					data-target="#chart-nav"> <i class="icon-bar-chart"></i> Charts
+					data-target="#chart-nav"> <i class="icon-bar-chart"></i> Reports
 
 						<span class="pull-right"> <i class="icon-angle-left"></i>
 					</span> &nbsp; <span class="label label-danger">4</span>&nbsp;
@@ -422,14 +422,14 @@
 
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
-					data-target="#DDL-nav"> <i class=" icon-sitemap"></i> 3 Level
-						Menu <span class="pull-right"> <i class="icon-angle-left"></i>
+					data-target="#DDL-nav"> <i class=" icon-sitemap"></i> Master
+						 <span class="pull-right"> <i class="icon-angle-left"></i>
 					</span>
 				</a>
 					<ul class="collapse" id="DDL-nav">
 						<li><a href="#" data-parent="#DDL-nav" data-toggle="collapse"
 							class="accordion-toggle" data-target="#DDL1-nav"> <i
-								class="icon-sitemap"></i>&nbsp; Demo Link 1 <span
+								class="icon-sitemap"></i>&nbsp; Contents <span
 								class="pull-right" style="margin-right: 20px;"> <i
 									class="icon-angle-left"></i>
 							</span>
@@ -437,20 +437,24 @@
 
 						</a>
 							<ul class="collapse" id="DDL1-nav">
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 1 </a></li>
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 2 </a></li>
-								<li><a href="#"><i class="icon-angle-right"></i> Demo
-										Link 3 </a></li>
+								<li><a href="#"><i class="icon-angle-right"></i> Question Bank
+										 </a></li>
+								<li><a href="#"><i class="icon-angle-right"></i> Study Materials
+										 </a></li>
+								<li><a href="#"><i class="icon-angle-right"></i>  Synopsis
+									</a></li>
+									
+									
+							<li><a href="#"><i class="icon-angle-right"></i>  Videos
+									</a></li>		
 
 							</ul></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 2 </a></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 3 </a></li>
-						<li><a href="#"><i class="icon-angle-right"></i> Demo
-								Link 4 </a></li>
+						 <li><a href="category.jsp"><i class="icon-angle-right"></i> Category </a></li>
+                        <li><a href="subcategory.jsp"><i class="icon-angle-right"></i> SubCategory </a></li>
+                        <li><a href="type.jsp"><i class="icon-angle-right"></i> Type </a></li>
+                       <li><a href="standard.jsp"><i class="icon-angle-right"></i> Standard </a></li>
+                       <li><a href="subject.jsp"><i class="icon-angle-right"></i> Subject </a></li>
+                       <li><a href="chapter.jsp"><i class="icon-angle-right"></i> Chapter </a></li>
 					</ul></li>
 				<li class="panel"><a href="#" data-parent="#menu"
 					data-toggle="collapse" class="accordion-toggle"
@@ -573,7 +577,7 @@
 								<div class="icons">
 									<i class="icon-th-large"></i>
 								</div>
-								<h5>Category</h5>
+								<h5>Chapter</h5>
 								<div class="toolbar">
 									<ul class="nav">
 										<li>
@@ -594,8 +598,9 @@
 							<div id="collapseOne" class="accordion-body collapse in body">
 								<form action="../ChapterController" method="post" class="form-horizontal">
 
-                                <label class="control-label col-lg-4"> Standard Name</label>
+                                
 										<div class="col-lg-4">
+										<label> Standard Name</label>
 										<select required="required" class="form-control" name="standard">
 											<option value="Id" selected="selected"> Standard Name </option>
 											
@@ -612,8 +617,9 @@
 											</select>
 											</div>  
 
-                                  <label class="control-label col-lg-4"> Subject Name</label>
+                                  
 										<div class="col-lg-4">
+										<label > Subject Name</label>
 										<select required="required" class="form-control" name="subject">
 											<option value="Id" selected="selected"> Subject Name </option>
 											
@@ -625,7 +631,7 @@
 												for (int i = 0; i < entityList1.size(); i++) {
 											%>
 											
-											<option value="<%=entityList1.get(i).getId()%>"><%=entityList1.get(i).getName()%></option> 
+											<option value="<%=entityList1.get(i).getName()%>"><%=entityList1.get(i).getName()%></option> 
 											<%} %>
 											</select>
 											</div>
@@ -650,17 +656,18 @@
 									<div class="form-group">
 										<label class="control-label col-lg-1">Name</label>
 										<div class="col-lg-4">
-										<input type="text" name ="chapter" id="chapter" style ="width : 300px;">
+										<input type="text" name ="chapter" id="chapter" style ="width :300px;height:30px;">
 										<input type="hidden" name ="id1" id="id1">
 										</div>
-										<div class="form-actions no-margin-bottom"
-										style="text-align: center;">
+										</div>
+										<div  class="form-actions no-margin-bottom"
+										style="margin-left:460px;margin-top:-5px;">
 										<input type="submit" id="save" name="action" value="save"
 											class="btn btn-primary " />
 											<input type="submit" id="edit" name="action" value="edit"
 											class="btn btn-warning" />
-									</div>
-										</div>
+									   </div>
+										
 									
 									
 									
@@ -689,6 +696,8 @@
 										<thead>
 											<tr>
 												<th>ID</th>
+												<th>Standard Name</th>
+												<th>Subject Name</th>
 												<th>NAME</th>
 												<th>ACTION</th>
 												
@@ -701,18 +710,19 @@
      
      ArrayList<Chapter> entityLis =ss.findAll();
      
-         for(int i=0;i<entityLis.size();i++)
+         for(Chapter entity:entityLis )
         { 
         	 
       %>							
 										</thead>
 										<tbody>
 											<tr class="odd gradeX">
-                                                <td><%=entityLis.get(i).getId()%></td>
-                                                
-                                                <td><%=entityLis.get(i).getName()%></td>
-                                                 <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entityLis.get(i).getId()%>,'<%=entityLis.get(i).getName()%>')" > 
-                                                     <input type="button" id="action" name ="action" value="Delete" onclick="s(<%=entityLis.get(i).getId()%>)" >
+                                                <td><%=entity.getId()%></td>
+                                                <td><%=entity.getStandard_name()%></td>
+                                                <td><%=entity.getSubject_name()%></td>
+                                                <td><%=entity.getName()%></td>
+                                                 <td><input type="button" id="action" name ="action" value="Edit" onclick="edit(<%=entity.getId()%>,'<%=entity.getName()%>')" > 
+                                                     <input type="button" id="action" name ="action" value="Delete" onclick="s(<%=entity.getId()%>)" >
                                                   </td>
                                                 
                                                 
